@@ -1,0 +1,6 @@
+{
+  "name": "eslint-plugin-custom-rules",
+  "description": "A plugin to implement custom homemade eslint rules",
+  "version": "1.0.0",
+  "main": "index.js"
+}

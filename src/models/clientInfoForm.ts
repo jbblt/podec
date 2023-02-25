@@ -1,10 +1,10 @@
-import {type Gender} from './enum/commonEnum';
+import { type Gender } from 'models/enum/commonEnum';
 
 export type ClientInfoForm = {
-	firstname: string;
-	lastname: string;
-	gender: Gender;
-	number: string;
-	formNumber: string;
-	applicator: string;
+  firstname: string;
+  lastname: string;
+  gender: Gender;
+  number: string;
+  formNumber: string;
+  applicator: string;
 };

@@ -1,10 +1,10 @@
 export enum Gender {
-	'H' = 'Homme',
-	'F' = 'Femme',
-	'O' = 'Autre',
+  'H' = 'Homme',
+  'F' = 'Femme',
+  'O' = 'Autre',
 }
 
 export enum YesOrNo {
-	'Y' = 'Oui',
-	'N' = 'Non',
+  'Y' = 'Oui',
+  'N' = 'Non',
 }
