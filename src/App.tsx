@@ -6,7 +6,7 @@ function App() {
 	return (
 		<>
 			<ResponsiveAppBar />
-			<div style={{background: 'red', margin: 20}}>
+			<div style={{margin: 20}}>
 				<Outlet />
 			</div>
 		</>

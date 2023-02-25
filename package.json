@@ -1,5 +1,6 @@
 {
   "name": "podex-pwa",
+  "homepage": "https://jbblt.github.io/podec/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +9,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint src",
-    "lint-fix": "eslint src --quiet --fix"
+    "lint-fix": "eslint src --quiet --fix",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "husky": {
     "hooks": {
@@ -46,6 +49,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.3.0",
     "file-saver": "^2.0.5",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "localforage": "^1.10.0",
     "prettier": "^2.8.4",
