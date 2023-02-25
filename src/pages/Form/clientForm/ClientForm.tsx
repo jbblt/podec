@@ -1,11 +1,4 @@
-import {
-	Button,
-	FormControl,
-	FormLabel,
-	Input,
-	MenuItem,
-	Select,
-} from '@mui/material';
+import {Button, FormControl, FormLabel, Input, MenuItem, Select} from '@mui/material';
 import {type SubmitHandler, useForm} from 'react-hook-form';
 import {type ClientInfoForm} from '../../../models/clientInfoForm';
 import {Gender} from '../../../models/enum/commonEnum';
@@ -37,7 +30,7 @@ export const ClientForm = () => {
 					<Input {...register('formNumber')} />
 				</li>
 				<li>
-					<FormLabel>Applicateur</FormLabel>
+					<FormLabel>Nom Applicateur</FormLabel>
 					<Input {...register('applicator')} />
 				</li>
 				<li>
