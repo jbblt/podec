@@ -1,6 +1,6 @@
 {
   "name": "podex-pwa",
-  "homepage": "https://jbblt.github.io/podec/",
+  "homepage": "https://jbblt.github.io/podec",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,11 +11,11 @@
     "lint": "eslint src",
     "lint-fix": "eslint src --quiet --fix",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run test"
+      "pre-commit": "yarn run lint && yarn run test"
     }
   },
   "dependencies": {
