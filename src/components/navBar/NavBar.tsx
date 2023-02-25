@@ -26,7 +26,7 @@ function ResponsiveAppBar() {
 			{name: 'Client', path: RoutesPath.FORM_CLIENT},
 			{
 				name: 'Modèle',
-				path: RoutesPath.FORM_CLIENT,
+				path: RoutesPath.FORM_MODEL,
 			},
 			{name: 'Coupe', path: RoutesPath.FORM_CLIENT},
 			{
