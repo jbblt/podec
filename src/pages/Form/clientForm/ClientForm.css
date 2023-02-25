@@ -1,0 +1,25 @@
+
+.form-row label {
+    display: flex;
+    justify-content: space-around;
+    padding: .5em;
+}
+
+.form-row > label {
+    padding: .5em 1em .5em 0;
+    flex: 1;
+}
+
+.form-row > input {
+    flex: 2;
+}
+
+.form-row > input,
+.form-row > button {
+    padding: .5em;
+}
+
+.form-row > button {
+    color: white;
+    border: 0;
+}
