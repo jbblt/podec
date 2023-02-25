@@ -9,15 +9,15 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       devOptions: {
-        enabled: true,
+        enabled: true
       },
       injectRegister: "auto",
       manifest: {
         name: "Podec Fiche de Fabrication",
         short_name: "Podec Form",
         description: "Podec form PWA build with React Vite and yarn ",
-        theme_color: "#ffffff",
-      },
-    }),
-  ],
+        theme_color: "#ffffff"
+      }
+    })
+  ]
 });
