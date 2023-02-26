@@ -10,23 +10,20 @@ export enum RoutesPath {
   FORM_MODEL = 'form/model',
 }
 
-export const router = createBrowserRouter(
-  [
-    {
-      path: RoutesPath.ROOT,
-      element: <App />,
-      errorElement: <ErrorPage />,
-      children: [
-        {
-          path: RoutesPath.FORM_CLIENT,
-          element: <ClientForm />,
-        },
-        {
-          path: RoutesPath.FORM_MODEL,
-          element: <ModelForm />,
-        },
-      ],
-    },
-  ],
-  { basename: '/' }
-);
+export const router = createBrowserRouter([
+  {
+    path: RoutesPath.ROOT,
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: RoutesPath.FORM_CLIENT,
+        element: <ClientForm />,
+      },
+      {
+        path: RoutesPath.FORM_MODEL,
+        element: <ModelForm />,
+      },
+    ],
+  },
+]);
