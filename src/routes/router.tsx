@@ -5,7 +5,7 @@ import { ModelForm } from 'pages/Form/modelForm/ModelForm';
 import { createBrowserRouter } from 'react-router-dom';
 
 export enum RoutesPath {
-  ROOT = '/app',
+  ROOT = '/',
   FORM_CLIENT = 'form/client',
   FORM_MODEL = 'form/model',
 }
