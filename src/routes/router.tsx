@@ -2,15 +2,15 @@ import App from 'App';
 import ErrorPage from 'pages/error/ErrorPage';
 import { ClientForm } from 'pages/Form/clientForm/ClientForm';
 import { ModelForm } from 'pages/Form/modelForm/ModelForm';
-import { createHashRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
 export enum RoutesPath {
-  ROOT = '/',
+  ROOT = '/app',
   FORM_CLIENT = 'form/client',
   FORM_MODEL = 'form/model',
 }
 
-export const router = createHashRouter(
+export const router = createBrowserRouter(
   [
     {
       path: RoutesPath.ROOT,
