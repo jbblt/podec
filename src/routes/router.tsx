@@ -10,20 +10,23 @@ export enum RoutesPath {
   FORM_MODEL = 'form/model',
 }
 
-export const router = createHashRouter([
-  {
-    path: RoutesPath.ROOT,
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: RoutesPath.FORM_CLIENT,
-        element: <ClientForm />,
-      },
-      {
-        path: RoutesPath.FORM_MODEL,
-        element: <ModelForm />,
-      },
-    ],
-  },
-]);
+export const router = createHashRouter(
+  [
+    {
+      path: RoutesPath.ROOT,
+      element: <App />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          path: RoutesPath.FORM_CLIENT,
+          element: <ClientForm />,
+        },
+        {
+          path: RoutesPath.FORM_MODEL,
+          element: <ModelForm />,
+        },
+      ],
+    },
+  ],
+  { basename: '/' }
+);
