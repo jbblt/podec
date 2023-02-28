@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material';
+import { Button, Grid, Paper, TextField, Typography } from '@mui/material';
 import ReactPDF from '@react-pdf/renderer';
 import { MyDocument } from 'components/pdf/MyDocument';
 import { saveAs } from 'file-saver';
@@ -62,37 +62,46 @@ export const ModelFormPage = () => {
   const [formCirc, setFormCirc] = useState<ModelForm[]>([emptyModelForm]);
 
   return (
-    <form>
-      <table>
-        <thead>
-          <th>Circ. G</th>
-          <th>Haut. Tige</th>
-          <th>Circ. G</th>
-        </thead>
-        <tbody>
-          {formCirc.map((line, key) => (
-            <tr key={key}>
-              <td>
-                <TextField id="outlined-basic" variant="outlined" value={line.leftCirc} />
-              </td>
-              <td>
-                <TextField id="outlined-basic" variant="outlined" value={line.tigeHeight} />
-              </td>
-              <td>
-                <TextField id="outlined-basic" variant="outlined" value={line.rightCirc} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <Button
-        name="addARow"
-        variant="contained"
-        size="small"
-        onClick={() => setFormCirc((prevState) => [...prevState, emptyModelForm])}
-      >
-        Ajouter une mesure
-      </Button>
-    </form>
+    <>
+      <Typography component="h2" variant="h4" textAlign={'center'}>
+        Modèle
+      </Typography>
+      <Paper variant="elevation" elevation={3} sx={{ my: { xs: 1, md: 12 }, p: { xs: 5 } }}>
+        <form>
+          <table>
+            <thead>
+              <th>Circ. G</th>
+              <th>Haut. Tige</th>
+              <th>Circ. G</th>
+            </thead>
+            <tbody>
+              {formCirc.map((line, key) => (
+                <tr key={key}>
+                  <td>
+                    <TextField id="outlined-basic" variant="outlined" value={line.leftCirc} />
+                  </td>
+                  <td>
+                    <TextField id="outlined-basic" variant="outlined" value={line.tigeHeight} />
+                  </td>
+                  <td>
+                    <TextField id="outlined-basic" variant="outlined" value={line.rightCirc} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <Grid item xl={12} xs={12} md={12} justifyContent={'end'} display={'flex'}>
+            <Button
+              name="addARow"
+              variant="contained"
+              size="small"
+              onClick={() => setFormCirc((prevState) => [...prevState, emptyModelForm])}
+            >
+              Ajouter une mesure
+            </Button>
+          </Grid>
+        </form>
+      </Paper>
+    </>
   );
 };

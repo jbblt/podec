@@ -1,101 +1,102 @@
-import { Box, Button, FormControl, MenuItem, Select, TextField } from '@mui/material';
+import { Grid, MenuItem, Paper, TextField, Typography } from '@mui/material';
 import { type ClientInfoForm } from 'models/clientInfoForm';
 import { Gender } from 'models/enum/commonEnum';
 import React from 'react';
 import { type SubmitHandler, useForm } from 'react-hook-form';
-import styled from 'styled-components';
 
 export const ClientForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ClientInfoForm>();
+  const { register, handleSubmit, formState } = useForm<ClientInfoForm>();
   const onSubmit: SubmitHandler<ClientInfoForm> = (data) => {
     console.warn(data);
   };
 
   return (
     <>
-      <Box
-        display="flex"
-        justifyContent="center"
-        flexWrap="wrap"
-        component="form"
-        height="100%"
-        gap="10px"
-        noValidate
-        autoComplete="off"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        {/*<StyledBox>*/}
-        <FormControl>
-          <TextField
-            size="small"
-            required
-            id="outlined-required"
-            label="Prénom"
-            placeholder="Prénom"
-            {...register('firstname')}
-          />
-          <TextField
-            size="small"
-            required
-            id="outlined-required"
-            label="Nom"
-            placeholder="Nom"
-            {...register('lastname')}
-          />
-          <Select
-            style={{ height: '40px' }}
-            required
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            size="small"
-            value="defaultValue"
-            {...register('gender')}
-          >
-            <MenuItem disabled key="defaultValue" value="defaultValue">
-              <em>Genre</em>
-            </MenuItem>
-            {Object.entries(Gender).map(([key, value]) => (
-              <MenuItem key={key} value={value}>
-                {value}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <TextField
-          size="small"
-          required
-          label="Numéro"
-          id="outlined-required"
-          placeholder="Numéro de patient"
-          {...register('formNumber')}
-        />
-        <TextField
-          required
-          size="small"
-          type="text"
-          id="outlined-required"
-          label="Applicateur"
-          placeholder="Nom de l'Applicateur"
-          {...register('applicator')}
-        />
-        {/*</StyledBox>*/}
-        <Box display={'flex'} justifyContent={'center'} mt={5}>
-          <Button type="submit" variant="contained">
-            Sauvegarder
-          </Button>
-        </Box>
-        {errors.gender && <span>This field is required</span>}
-      </Box>
+      <Typography component="h2" variant="h4" align="center">
+        Patient
+      </Typography>
+      <Paper variant="elevation" elevation={3} sx={{ my: { xs: 1, md: 12 }, p: { xs: 5 } }}>
+        <Grid container spacing={4} display="flex" justifyContent={'center'}>
+          <Grid item xl={12} xs={8} md={12}>
+            <TextField
+              error={!!formState.errors.firstname}
+              fullWidth
+              required
+              variant="standard"
+              type="text"
+              label="Nom du Patient"
+              autoComplete="firstname"
+              placeholder="Nom"
+              id="firstname"
+              {...register('firstname')}
+            />
+          </Grid>
+          <Grid item xl={8} xs={8} md={6}>
+            <TextField
+              error={!!formState.errors.lastname}
+              fullWidth
+              required
+              variant="standard"
+              type="text"
+              label="Prénom"
+              autoComplete="lastname"
+              id="lastname"
+              placeholder="Prénom"
+              {...register('lastname')}
+            />
+          </Grid>
+          <Grid item xl={8} xs={8} md={6}>
+            <TextField
+              error={!!formState.errors.number}
+              fullWidth
+              required
+              variant="standard"
+              type="number"
+              label="Numéro"
+              id="number"
+              placeholder="Numéro de patient"
+              {...register('formNumber')}
+            />
+          </Grid>
+          <Grid item xl={8} xs={8} md={6}>
+            <TextField
+              error={!!formState.errors.applicator}
+              required
+              fullWidth
+              label="Applicateur"
+              type="text"
+              id="applicator"
+              variant="standard"
+              autoComplete="applicator"
+              placeholder="Nom de l'Applicateur"
+              {...register('applicator')}
+            />
+          </Grid>
+          <Grid item xl={8} xs={8} md={6}>
+            <TextField
+              required
+              error={!!formState.errors.gender}
+              fullWidth
+              label="Genre"
+              id="gender"
+              select
+              variant="standard"
+              {...register('gender', {
+                required: {
+                  value: true,
+                  message: 'Sélectionner le Genre',
+                },
+              })}
+            >
+              {Object.entries(Gender).map(([key, value]) => (
+                <MenuItem key={key} value={key}>
+                  {value}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+        </Grid>
+      </Paper>
     </>
   );
 };
-
-const StyledBox = styled(Box)<typeof Box>`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-`;
