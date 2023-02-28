@@ -1,5 +1,6 @@
 import 'App.css';
 
+import { Box } from '@mui/material';
 import ResponsiveAppBar from 'components/navBar/NavBar';
 import { Outlet } from 'react-router-dom';
 
@@ -7,9 +8,9 @@ function App() {
   return (
     <>
       <ResponsiveAppBar />
-      <div style={{ margin: 20 }}>
+      <Box mt={3}>
         <Outlet />
-      </div>
+      </Box>
     </>
   );
 }
