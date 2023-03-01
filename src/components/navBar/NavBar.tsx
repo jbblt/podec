@@ -28,7 +28,7 @@ function ResponsiveAppBar() {
         name: 'Modèle',
         path: RoutesPath.FORM_MODEL,
       },
-      { name: 'Coupe', path: RoutesPath.FORM_CLIENT },
+      { name: 'Coupe', path: RoutesPath.FORM_SECTION },
       {
         name: 'Montage',
         path: RoutesPath.FORM_CLIENT,
@@ -169,7 +169,6 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
