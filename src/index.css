@@ -1,7 +1,19 @@
-:root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    background: #F3F3F3;
-    overflow: hidden;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+header {
+    height: auto;
+}
+
+main {
+    flex-grow: 1;
+    overflow: auto;
+}
+
+footer {
+
+}

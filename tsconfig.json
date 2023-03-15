@@ -3,6 +3,9 @@
     "baseUrl": "src",
     "target": "ESNext",
     "useDefineForClassFields": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
     "lib": [
       "DOM",
       "DOM.Iterable",

@@ -1,6 +1,8 @@
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useTheme } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -13,7 +15,7 @@ import Typography from '@mui/material/Typography';
 import React, { useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RoutesPath } from 'routes/router';
-import styled from 'styled-components';
+import { ColorModeContext } from 'theme/ColorModeContext';
 
 type MenuItems = Array<{
   name: string;
@@ -68,9 +70,12 @@ function ResponsiveAppBar() {
     },
     [anchorElNav, handleCloseNavMenu, navigate]
   );
+  const theme = useTheme();
+  const mode = theme.palette.mode;
+  const colorMode = React.useContext(ColorModeContext);
 
   return (
-    <StyledAppBar position="static">
+    <AppBar position={'sticky'}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -170,10 +175,12 @@ function ResponsiveAppBar() {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
+            <Tooltip title={mode}>
+              <>
+                <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+                  {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                </IconButton>
+              </>
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
@@ -200,12 +207,8 @@ function ResponsiveAppBar() {
           </Box>
         </Toolbar>
       </Container>
-    </StyledAppBar>
+    </AppBar>
   );
 }
-
-const StyledAppBar = styled(AppBar)`
-  height: 70px;
-`;
 
 export default ResponsiveAppBar;

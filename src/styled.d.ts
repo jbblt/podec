@@ -10,3 +10,21 @@ declare module 'styled-components' {
     };
   };
 }
+
+declare module '@mui/material/styles' {
+  interface Theme {
+    status: {
+      danger: React.CSSProperties['color'];
+    };
+  }
+
+  interface Palette {
+    neutral: Palette['primary'];
+  }
+
+  // interface PaletteOptions {}
+
+  // interface PaletteColor {}
+
+  // interface SimplePaletteColorOptions {}
+}
